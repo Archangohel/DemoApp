@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="flipKartDataLoaderConfig" class="com.choosesmart.bo.utils.DataLoaderConfig">
+		<property name="merchant" ref="flipKartMerchant"></property>
+		<property name="csvMap">
+			<map>
+				<entry key-ref="Mobile"
+					value=".\src\com\choosesmart\resources\flipkart\data\archangoh-products-feed-for-tyy-4io-for-Jul-26.csv"></entry>
+				<entry key-ref="Tablet"
+					value=".\src\com\choosesmart\resources\flipkart\data\archangoh-products-feed-for-tyy-hry-for-Jul-26.csv"></entry>
+				<entry key-ref="Camera"
+					value=".\src\com\choosesmart\resources\flipkart\data\camera.csv"></entry>
+				<entry key-ref="Laptop"
+					value=".\src\com\choosesmart\resources\flipkart\data\laptop.csv"></entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="flipKartMerchant" class="com.choosesmart.bo.Merchant">
+		<property name="id" value="1"></property>
+		<property name="name" value="Flipkart"></property>
+		<property name="type" value="Online Store"></property>
+	</bean>
+	<bean id="Mobile" class="com.choosesmart.bo.Category">
+		<property name="id" value="2"></property>
+		<property name="name" value="Mobile"></property>
+		<property name="topLevel" value="false"></property>
+		<property name="linkedCategory" ref="Electronics"></property>
+	</bean>
+	<bean id="Tablet" class="com.choosesmart.bo.Category">
+		<property name="id" value="3"></property>
+		<property name="name" value="Tablet"></property>
+		<property name="topLevel" value="false"></property>
+		<property name="linkedCategory" ref="Electronics"></property>
+	</bean>
+	<bean id="Camera" class="com.choosesmart.bo.Category">
+		<property name="id" value="4"></property>
+		<property name="name" value="Camera"></property>
+		<property name="topLevel" value="false"></property>
+		<property name="linkedCategory" ref="Electronics"></property>
+	</bean>
+	<bean id="Laptop" class="com.choosesmart.bo.Category">
+		<property name="id" value="5"></property>
+		<property name="name" value="Laptop"></property>
+		<property name="topLevel" value="false"></property>
+		<property name="linkedCategory" ref="Electronics"></property>
+	</bean>
+	<bean id="Electronics" class="com.choosesmart.bo.Category">
+		<property name="id" value="1"></property>
+		<property name="name" value="Electronics"></property>
+		<property name="topLevel" value="true"></property>
+	</bean>
+</beans>
